@@ -62,7 +62,7 @@ The model is then integrated with FastAPI to provide predictions through a REST 
                     │ Image Preprocessing │
                     │                     │
                     │ RGB conversion      │
-                    │ Resize → 224×224     │
+                    │ Resize → 224×224    │
                     │ NumPy conversion    │
                     │ Batch dimension     │
                     └──────────┬──────────┘
@@ -99,15 +99,14 @@ brain-tumor-classification/
 │   ├── meningioma/
 │   ├── no_tumor/
 │   └── pituitary/
-│
-├── notebooks/
-│   └── brain_tumor_classification.ipynb
+|
+|── brain_tumor_classification.ipynb
 │
 ├── brain_tumor_pred.keras
 │
-├── main.py
+├── brain_tumor_backend.py
 │
-├── streamlit_app.py
+├── brain_tumor_fronetend.py
 │
 ├── requirements.txt
 │
@@ -162,7 +161,7 @@ Therefore, uploaded images are processed before inference.
 ### 1. Convert image to RGB
 
 ```python
-image = Image.open(file.file).convert("RGB")
+image = Image.open().convert("RGB")
 ```
 
 This ensures that images with different modes such as grayscale or RGBA are converted into three-channel RGB images.
@@ -170,7 +169,7 @@ This ensures that images with different modes such as grayscale or RGBA are conv
 ### 2. Resize image
 
 ```python
-image = image.resize((224, 224))
+image = image.resize(( , ))
 ```
 
 The image is resized to match the input dimensions expected by the CNN.
@@ -257,7 +256,7 @@ on the evaluation set containing 1,000 images.
 |     3 |   0.9523 | 0.1302 |          0.2495 |               0.925 |
 |     4 |   0.9798 | 0.0673 |          0.2694 |               0.919 |
 
-The model reached approximately **97.98% training accuracy** while validation accuracy reached approximately **92.5%** at its best point in the reported epochs.
+The model reached approximately **97.98% training accuracy** while validation accuracy reached approximately **89.8%** at its best point in the reported epochs.
 
 This indicates that the model learned the training data effectively, although the difference between training and validation performance should be monitored for potential overfitting.
 
@@ -472,7 +471,7 @@ The important requirement is not the original file extension but that the final 
 Clone the repository:
 
 ```bash
-git clone <>
+git clone https://github.com/munirajabommisetty-cmyk/Brain_Tumor_Classification.git
 ```
 
 Move into the project:
@@ -506,7 +505,7 @@ pip install -r requirements.txt
 Start the FastAPI server:
 
 ```bash
-uvicorn main:app --reload
+uvicorn brain_tumor_backend:app --reload
 ```
 
 The API will be available at:
@@ -530,7 +529,7 @@ You can use `/docs` to upload an image and test the prediction endpoint directly
 Open another terminal and run:
 
 ```bash
-streamlit run streamlit_app.py
+streamlit run brain_tumor_frontend.py
 ```
 
 Streamlit will provide a local URL, normally:
