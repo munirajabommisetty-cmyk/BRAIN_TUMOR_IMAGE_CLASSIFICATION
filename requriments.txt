@@ -1,10 +1,10 @@
 numpy
 pandas
 matplotlib
-tensorflow
+tensorflow==2.21.0
 streamlit
+fastapi
 uvicorn
 pydantic
-fastapi
 requests
-sklearn
+scikit-learn
