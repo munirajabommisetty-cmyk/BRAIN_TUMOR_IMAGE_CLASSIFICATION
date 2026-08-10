@@ -30,7 +30,7 @@ if uploaded_file :
                 "file": ( uploaded_file.name, uploaded_file.getvalue(), uploaded_file.type)
             }
 
-            response = requests.post("http://127.0.0.1:8000/predict",files=files)
+            response = requests.post("https://brain-tumor-image-classification-1.onrender.com/predict",files=files)
 
         # Check response
         if response.status_code == 200:
