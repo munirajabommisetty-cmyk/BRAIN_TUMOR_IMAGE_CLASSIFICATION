@@ -750,6 +750,8 @@ Through this project, the following concepts were implemented:
 * Basic ML deployment architecture
 
 ---
+# LIVE DEMO OF THE APP:
+https://braintumorimageclassification-nsygexcjtcnszqcvnpvwvq.streamlit.app/
 
 # 👨‍💻 Author
 
