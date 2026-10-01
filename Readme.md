@@ -27,6 +27,7 @@ In this project, a CNN is trained to classify brain MRI images into four classes
 | `pituitary`  | Pituitary tumor         |
 
 The trained model is saved as a Keras model:
+try to change the model performance in clear way,like try with pretrained models like resnet,mobilenet..so accuracy becomes like 95%.
 
 ```text
 brain_tumor_pred.keras
