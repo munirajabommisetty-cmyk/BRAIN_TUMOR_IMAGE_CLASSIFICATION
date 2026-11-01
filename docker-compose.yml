@@ -1,0 +1,45 @@
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+
+    image: brain_tumor_backend:v2
+
+    container_name: brain_tumor_backend
+
+    ports:
+      - "8000:8000"
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
+
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+
+    image: brain_tumor_frontend_1:v1
+    
+
+    container_name: brain_tumor_frontend
+
+    ports:
+      - "8501:8501"
+
+    environment:
+      BRAIN_TUMOR_API_URL: http://backend:8000/predict
+
+    depends_on:
+      backend:
+        condition: service_healthy
