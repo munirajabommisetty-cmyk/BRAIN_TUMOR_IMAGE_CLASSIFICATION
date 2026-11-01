@@ -1,0 +1,15 @@
+
+name: Brain Tumor Classification CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display confirmation
+        run: echo "GitHub Actions is working!"
